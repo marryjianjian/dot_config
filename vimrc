@@ -461,6 +461,7 @@
 
     " GoLang {
         if count(g:spf13_bundle_groups, 'go')
+            let g:go_template_autocreate = 0
             let g:go_highlight_functions = 1
             let g:go_highlight_methods = 1
             let g:go_highlight_structs = 1
@@ -582,6 +583,34 @@
         "if gitroot != ''
         "    let &tags = &tags . ',' . gitroot . '/.git/tags'
         "endif
+    " }
+
+    " Coc {
+        if isdirectory(expand("~/.vim/plugged/coc.nvim"))
+            nmap <silent> <C-j> <Plug>(coc-definition)
+            nmap <silent> <C-,> <Plug>(coc-references)
+            set updatetime=300
+            au CursorHold * sil call CocActionAsync('highlight')
+            au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+        endif
+        " :CocConfig
+        "{
+          ""languageserver": {
+            ""ccls": {
+              ""command": "ccls",
+              ""filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+              ""rootPatterns": [".ccls-root", "compile_commands.json"],
+              ""initializationOptions": {
+                ""cache": {
+                  ""directory": ".ccls-cache"
+                "},
+                ""client": {
+                  ""snippetSupport": true
+                "}
+              "}
+            "}
+          "}
+        "}
     " }
 
     " AutoCloseTag {
@@ -721,10 +750,10 @@
 
     " Fugitive {
         if isdirectory(expand("~/.vim/plugged/vim-fugitive/"))
-            nnoremap <silent> <leader>gs :Gstatus<CR>
+            nnoremap <silent> <leader>gs :Git<CR>
             nnoremap <silent> <leader>gd :Gdiff<CR>
             nnoremap <silent> <leader>gc :Gcommit<CR>
-            nnoremap <silent> <leader>gb :Gblame<CR>
+            nnoremap <silent> <leader>gb :Git blame<CR>
             nnoremap <silent> <leader>gl :Glog<CR>
             nnoremap <silent> <leader>gp :Git push<CR>
             nnoremap <silent> <leader>gr :Gread<CR>

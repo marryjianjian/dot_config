@@ -72,7 +72,7 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'deoplete', 'programming', 'go',]
+        let g:spf13_bundle_groups=['general', 'coc', 'programming', 'go',]
     endif
 
     let g:spf13_no_views = 1
@@ -148,7 +148,9 @@
     " }
 
     " Snippets & AutoComplete {
-        if count(g:spf13_bundle_groups, 'deoplete')
+        if count(g:spf13_bundle_groups, 'coc')
+            Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        elseif count(g:spf13_bundle_groups, 'deoplete')
             Plug 'Shougo/deoplete.nvim'
             Plug 'roxma/nvim-yarp'
             Plug 'roxma/vim-hug-neovim-rpc'
