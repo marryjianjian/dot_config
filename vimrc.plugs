@@ -83,6 +83,7 @@
 
     " General {
         if count(g:spf13_bundle_groups, 'general')
+            Plug 'ojroques/vim-oscyank'
             Plug 'scrooloose/nerdtree'
             Plug 'altercation/vim-colors-solarized'
             Plug 'spf13/vim-colors'
