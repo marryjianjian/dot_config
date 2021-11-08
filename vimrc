@@ -520,7 +520,7 @@
             let b:match_ignorecase = 1
         endif
         if isdirectory(expand("~/.vim/plugged/vim-oscyank"))
-            vnoremap <leader>c :OSCYank<CR>
+            vnoremap y :OSCYank<CR>
         endif
     " }
 
