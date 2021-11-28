@@ -20,3 +20,5 @@ sudo apt-get install -y nodejs
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+
+[nodejs debian install](https://github.com/nodesource/distributions/blob/master/README.md#debinstall)
