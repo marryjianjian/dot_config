@@ -10,7 +10,7 @@ modified from [spf13-vim](https://github.com/spf13/spf13-vim)
 
 
 
-#### Install reference
+#### Install Dependencies
 ```bash
 # Node.js v16.x for ubuntu
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -21,4 +21,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+
+#### References
 [nodejs debian install](https://github.com/nodesource/distributions/blob/master/README.md#debinstall)
+
