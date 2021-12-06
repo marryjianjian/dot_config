@@ -21,6 +21,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+```vim
+:! cp ragel.vim $VIMRUNTIME/syntax/ragel.vim
+```
+
 
 #### References
 [nodejs debian install](https://github.com/nodesource/distributions/blob/master/README.md#debinstall)

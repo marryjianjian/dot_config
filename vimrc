@@ -261,6 +261,7 @@
     " preceding line best in a plugin but here for now.
 
     autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+    autocmd BufNewFile,BufRead *.rl,*.ragel set filetype=ragel
 
     " Workaround vim-commentary for Haskell
     "autocmd FileType haskell setlocal commentstring=--\ %s
