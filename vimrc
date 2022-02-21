@@ -74,12 +74,6 @@
         call plug#end()
 " }
 
-" Use bundles config {
-"    if filereadable(expand("~/.vimrc.bundles"))
-"        source ~/.vimrc.bundles
-"    endif
-" }
-
 " General {
 
     set background=dark         " Assume a dark background
