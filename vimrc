@@ -740,6 +740,20 @@
         endif
     "}
 
+    " Ack.vim {
+        if isdirectory(expand("~/.vim/plugged/ack.vim/")) && executable("rg")
+            " Auto close the Quickfix list after pressing '<enter>' on a list
+            " item
+            let g:ack_autoclose = 1
+            " Any empty ack search will search for the work the cursor is on
+            let g:ack_use_cword_for_empty_search = 1
+            " Don't jump to first match
+            cnoreabbrev Ack Ack!
+            " Maps <leader>/ so we're ready to type the search keyword
+            nnoremap <Leader>/ :Ack!<Space>
+        endif
+    " }
+
     " Rainbow {
         if isdirectory(expand("~/.vim/plugged/rainbow/"))
             let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
