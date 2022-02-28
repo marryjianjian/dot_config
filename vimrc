@@ -666,6 +666,11 @@
         endif
     "}
 
+    " https://github.com/mileszs/ack.vim/issues/188#issuecomment-417939294
+    function! Find_git_root()
+        return system('git rev-parse --show-toplevel 2>/dev/null')[:-2]
+    endfunction
+
     " Ack.vim {
         if isdirectory(expand("~/.vim/plugged/ack.vim/")) && executable("rg")
             " Auto close the Quickfix list after pressing '<enter>' on a list
@@ -673,10 +678,15 @@
             let g:ack_autoclose = 1
             " Any empty ack search will search for the work the cursor is on
             let g:ack_use_cword_for_empty_search = 1
+            " Highlight every matches
+            let g:ackhighlight = 1
+
+            " hack use for search project path
             " Don't jump to first match
+            command! -nargs=1 Ag execute "Ack! <args> " . Find_git_root()
             cnoreabbrev Ack Ack!
             " Maps <leader>/ so we're ready to type the search keyword
-            nnoremap <Leader>/ :Ack!<Space>
+            nnoremap <Leader>/ :Ag<space><cword>
         endif
     " }
 
