@@ -90,6 +90,9 @@
                 Plug 'ludovicchabant/vim-gutentags'
                 Plug 'majutsushi/tagbar'
             endif
+            if executable('clang-format')
+                Plug 'rhysd/vim-clang-format'
+            endif
         endif
     " }
 
