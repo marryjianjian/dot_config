@@ -78,18 +78,6 @@
 
     set background=dark         " Assume a dark background
 
-    " Allow to trigger background
-    function! ToggleBG()
-        let s:tbg = &background
-        " Inversion
-        if s:tbg == "dark"
-            set background=light
-        else
-            set background=dark
-        endif
-    endfunction
-    noremap <leader>bg :call ToggleBG()<CR>
-
     " if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
     " endif
@@ -310,8 +298,8 @@
     endif
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
-    noremap j gj
-    noremap k gk
+    "noremap j gj
+    "noremap k gk
 
     " End/Start of line motion keys act relative to row/wrap width in the
     " presence of `:set wrap`, and relative to line for `:set nowrap`.
@@ -693,12 +681,6 @@
         endif
     " }
 
-    " Rainbow {
-        if isdirectory(expand("~/.vim/plugged/rainbow/"))
-            let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-        endif
-    "}
-
     " Fugitive {
         if isdirectory(expand("~/.vim/plugged/vim-fugitive/"))
             nnoremap <silent> <leader>gs :Git<CR>
@@ -916,7 +898,7 @@
 
 " Functions {
 
-    " Initialize directories {
+    " Initialize directories
     function! InitializeDirectories()
         let parent = $HOME
         let prefix = 'vim'
@@ -957,23 +939,8 @@
         endfor
     endfunction
     call InitializeDirectories()
-    " }
 
-    " Initialize NERDTree as needed {
-    function! NERDTreeInitAsNeeded()
-        redir => bufoutput
-        buffers!
-        redir END
-        let idx = stridx(bufoutput, "NERD_tree")
-        if idx > -1
-            NERDTreeMirror
-            NERDTreeFind
-            wincmd l
-        endif
-    endfunction
-    " }
-
-    " Strip whitespace {
+    " Strip whitespace
     function! StripTrailingWhitespace()
         " Preparation: save last search, and cursor position.
         let _s=@/
@@ -985,9 +952,8 @@
         let @/=_s
         call cursor(l, c)
     endfunction
-    " }
 
-    " Shell command {
+    " Shell command
     function! s:RunShellCommand(cmdline)
         botright new
 
@@ -1008,7 +974,18 @@
 
     command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
     " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
-    " }
+
+    " Allow to trigger background
+    function! ToggleBG()
+        let s:tbg = &background
+        " Inversion
+        if s:tbg == "dark"
+            set background=light
+        else
+            set background=dark
+        endif
+    endfunction
+    noremap <leader>bg :call ToggleBG()<CR>
 
 " }
 
