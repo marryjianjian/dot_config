@@ -212,7 +212,9 @@
     " Rust {
         if count(g:spf13_bundle_groups, 'rust')
             Plug 'rust-lang/rust.vim'
-            Plug 'neovim/nvim-lspconfig'
+            if has('nvim')
+                Plug 'neovim/nvim-lspconfig'
+            endif
         endif
     " }
 
