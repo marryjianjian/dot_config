@@ -21,8 +21,6 @@
 "   You can find me at http://spf13.com
 " }
 
-" Environment {
-
     " Basics {
         set nocompatible        " Must be first line
         set background=dark     " Assume a dark background
@@ -48,7 +46,7 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'coc', 'programming', 'go',]
+        let g:spf13_bundle_groups=['general', 'coc', 'programming', 'go', 'rust']
     endif
 
     let g:spf13_no_views = 1
@@ -202,13 +200,19 @@
 
     " Misc {
         if count(g:spf13_bundle_groups, 'misc')
-            " Plug 'rust-lang/rust.vim'
             "Plug 'tpope/vim-markdown'
             "Plug 'spf13/vim-preview'
             "Plug 'tpope/vim-cucumber'
             "Plug 'cespare/vim-toml'
             "Plug 'quentindecock/vim-cucumber-align-pipes'
             "Plug 'saltstack/salt-vim'
+        endif
+    " }
+
+    " Rust {
+        if count(g:spf13_bundle_groups, 'rust')
+            Plug 'rust-lang/rust.vim'
+            Plug 'neovim/nvim-lspconfig'
         endif
     " }
 

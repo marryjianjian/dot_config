@@ -1,5 +1,5 @@
 " Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=1 foldmethod=marker spell:
 "
 "                    __ _ _____              _
 "         ___ _ __  / _/ |___ /      __   __(_)_ __ ___
@@ -28,8 +28,6 @@
 "   See the License for the specific language governing permissions and
 "   limitations under the License.
 " }
-
-" Environment {
 
      " python patch {
         " https://github.com/vim/vim/issues/3117
@@ -63,8 +61,6 @@
             inoremap <silent> <C-[>OC <RIGHT>
         endif
     " }
-
-" }
 
 " Use Plug config {
         call plug#begin('~/.vim/plugged')
