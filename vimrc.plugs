@@ -42,6 +42,9 @@
             Plug 'mileszs/ack.vim'
         endif
     " }
+    if has('nvim')
+        Plug 'neovim/nvim-lspconfig'
+    endif
 
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
@@ -212,9 +215,6 @@
     " Rust {
         if count(g:spf13_bundle_groups, 'rust')
             Plug 'rust-lang/rust.vim'
-            if has('nvim')
-                Plug 'neovim/nvim-lspconfig'
-            endif
         endif
     " }
 
