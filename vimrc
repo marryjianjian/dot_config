@@ -653,6 +653,14 @@
         endif
     "}
 
+    " NERD Commenter {
+        if isdirectory(expand("~/.vim/plugged/nerdcommenter/"))
+            let g:NERDSpaceDelims = 1
+            let g:NERDCompactSexyComs = 1
+            let g:NERDDefaultAlign = 'left'
+        endif
+    " }
+
     " https://github.com/mileszs/ack.vim/issues/188#issuecomment-417939294
     function! Find_git_root()
         return system('git rev-parse --show-toplevel 2>/dev/null')[:-2]
