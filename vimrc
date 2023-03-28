@@ -240,11 +240,12 @@
 
     autocmd BufNewFile,BufRead *.coffee set filetype=coffee
     autocmd BufNewFile,BufRead *.rl,*.ragel set filetype=ragel
+    au BufRead,BufNewFile *.grm set filetype=thraxgrm
 
     " Workaround vim-commentary for Haskell
     "autocmd FileType haskell setlocal commentstring=--\ %s
     " Workaround broken colour highlighting in Haskell
-    autocmd FileType haskell,rust setlocal nospell
+    autocmd FileType haskell,rust,thraxgrm setlocal nospell
 
 " }
 
@@ -506,7 +507,7 @@
             nmap <silent> <C-,> <Plug>(coc-references)
             set updatetime=300
             au CursorHold * sil call CocActionAsync('highlight')
-            au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+            " au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
         endif
         " :CocConfig
         "{
