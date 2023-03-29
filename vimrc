@@ -679,7 +679,7 @@
 
             " hack use for search project path
             " Don't jump to first match
-            command! -nargs=1 Ag execute "Ack! <args> " . Find_git_root()
+            command! -nargs=1 Ag execute "Ack! -g '!{**/googletest}' <args> " . Find_git_root()
             cnoreabbrev Ack Ack!
             " Maps <leader>/ so we're ready to type the search keyword
             nnoremap <Leader>/ :Ag<space><cword>
