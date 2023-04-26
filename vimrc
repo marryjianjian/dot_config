@@ -464,8 +464,8 @@
             let b:match_ignorecase = 1
         endif
         if isdirectory(expand("~/.vim/plugged/vim-oscyank"))
-            nmap <leader>c <Plug>OSCYankOperator
-            vmap <leader>c <Plug>OSCYankVisual
+            nmap <leader>y <Plug>OSCYankOperator
+            vmap <leader>y <Plug>OSCYankVisual
         endif
     " }
 
