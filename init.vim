@@ -46,6 +46,8 @@ lua <<EOF
       -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
+    }, {
+      { name = "path" },
     })
   })
 
