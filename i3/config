@@ -17,6 +17,7 @@ for_window [title="^Picture$"] floating enable
 for_window [class="(?i)pamac-manager"] floating enable; border none; resize set 640 480
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
+for_window [class="manjaro-settings-manager"] floating enable
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
@@ -30,6 +31,9 @@ no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
+# burpsuite
+for_window [class="burp-StartBurp" title="Settings"] floating enable; border none; resize 1000 800
+for_window [class="dolphin"] floating enable
 
 set $mod Mod1
 
@@ -74,7 +78,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
 # add GLFW_IM_MODULE=ibus for input chinese
@@ -102,6 +106,9 @@ for_window [instance="copyq"] floating enable
 for_window [instance="copyq"] resize set 1000 600
 for_window [instance="copyq"] border pixel 5
 exec copyq --start-server
+
+# for flameshot
+bindsym Mod4+Insert exec --no-startup-id "flameshot gui"
 
 # change focus
 bindsym $mod+j focus left
