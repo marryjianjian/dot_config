@@ -148,7 +148,7 @@ nvim_lsp['ccls'].setup {
   on_attach = on_attach,
   init_options = {
     cache = {
-      directory = ".ccls-cache";
+      directory = vim.fn.expand("~/.cache/ccls");
     };
   }
 }
