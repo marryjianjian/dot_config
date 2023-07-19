@@ -661,7 +661,6 @@
             let g:NERDCompactSexyComs = 1
             let g:NERDDefaultAlign = 'left'
             let g:NERDAltDelims_c = 1
-            let g:NERDAltDelims_cpp = 1
         endif
     " }
 
