@@ -531,7 +531,7 @@
         "}
     " }
 
-    " clang-format {
+    " for format {
         if isdirectory(expand("~/.vim/plugged/vim-clang-format"))
             " map to <Leader>cf in C++ code
             autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
@@ -539,6 +539,7 @@
             " Toggle auto formatting:
             nmap <Leader>C :ClangFormatAutoToggle<CR>
         endif
+        autocmd FileType rust nmap <Leader>cf :%! rustfmt<CR>
     " }
 
     " AutoCloseTag {
