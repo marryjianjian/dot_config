@@ -539,7 +539,7 @@
             " Toggle auto formatting:
             nmap <Leader>C :ClangFormatAutoToggle<CR>
         endif
-        autocmd FileType rust nmap <Leader>cf :%! rustfmt<CR>
+        autocmd FileType rust nmap <Leader>cf :RustFmt<CR>
     " }
 
     " AutoCloseTag {
