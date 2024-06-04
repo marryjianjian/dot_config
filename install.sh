@@ -9,4 +9,5 @@ ln -s $(pwd)/vimrc.plugs ~/.vimrc.plugs
 mkdir -p ~/.vim/syntax
 cp $(pwd)/ragel.vim $(pwd)/thraxgrm.vim ~/.vim/syntax
 mkdir -p ~/.config/nvim
-ln -s $(pwd)/init.vim ~/.config/nvim/init.vim
+ln -s $(pwd)/init.lua ~/.config/nvim/init.lua
+ln -s $(pwd)/vimrc ~/.config/nvim/vimrc.vim

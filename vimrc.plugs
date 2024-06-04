@@ -107,15 +107,6 @@
     " Snippets & AutoComplete {
         if count(g:spf13_bundle_groups, 'coc')
             Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        elseif count(g:spf13_bundle_groups, 'youcompleteme')
-            Plug 'ycm-core/YouCompleteMe'
-            Plug 'SirVer/ultisnips'
-            Plug 'honza/vim-snippets'
-        elseif count(g:spf13_bundle_groups, 'neocomplete')
-            Plug 'Shougo/neocomplete.vim'
-            Plug 'Shougo/neosnippet'
-            Plug 'Shougo/neosnippet-snippets'
-            Plug 'honza/vim-snippets'
         endif
     " }
 
