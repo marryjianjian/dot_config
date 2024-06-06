@@ -46,7 +46,41 @@ require("lazy").setup({
   'tpope/vim-fugitive',
   'scrooloose/nerdtree',
   'scrooloose/nerdcommenter',
-  'rhysd/vim-clang-format',
+  {
+    'rhysd/vim-clang-format',
+    ft = {'c', 'cpp', 'objc'},
+  },
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    keys = {
+      { '<leader>S', '<cmd>lua require("spectre").toggle()<CR>',
+        mode = 'n', desc = 'Toggle Spectre' },
+      { '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+        mode = 'n', desc = 'Search current word' },
+      { '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+        mode = 'v', desc = 'Search current word' },
+    },
+    config = function()
+      require('spectre').setup({
+        find_engine = {
+          ['rg'] = {
+            cmd = "rg",
+            args = {
+              '--color=never',
+              '--no-heading',
+              '--with-filename',
+              '--line-number',
+              '--column',
+              '--follow',
+            },
+          },
+        },
+      })
+    end,
+  },
 })
 
 -- set colorscheme
