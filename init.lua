@@ -64,6 +64,7 @@ require("lazy").setup({
         mode = 'v', desc = 'Search current word' },
     },
     config = function()
+      local root_dir = vim.fs.dirname(vim.fs.find('.git', { upward = true })[1])
       require('spectre').setup({
         find_engine = {
           ['rg'] = {
@@ -78,6 +79,11 @@ require("lazy").setup({
             },
           },
         },
+        open_template = {
+          {
+            search_path = root_dir or '.',
+          }
+        }
       })
     end,
   },
