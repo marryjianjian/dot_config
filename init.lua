@@ -58,13 +58,24 @@ require("lazy").setup({
     keys = {
       { '<leader>S', '<cmd>lua require("spectre").toggle()<CR>',
         mode = 'n', desc = 'Toggle Spectre' },
-      { '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+      { '<leader>sw', function()
+          local root_dir = vim.fs.dirname(vim.fs.find('.git', {upward=true})[1])
+          require('spectre').open_visual({
+            select_word = true,
+            cwd = root_dir,
+          })
+        end,
         mode = 'n', desc = 'Search current word' },
-      { '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+      { '<leader>sw', function()
+          local root_dir = vim.fs.dirname(vim.fs.find('.git', {upward=true})[1])
+          require('spectre').open_visual({
+            select_word = true,
+            cwd = root_dir,
+          })
+        end,
         mode = 'v', desc = 'Search current word' },
     },
     config = function()
-      local root_dir = vim.fs.dirname(vim.fs.find('.git', { upward = true })[1])
       require('spectre').setup({
         find_engine = {
           ['rg'] = {
@@ -79,11 +90,6 @@ require("lazy").setup({
             },
           },
         },
-        open_template = {
-          {
-            search_path = root_dir or '.',
-          }
-        }
       })
     end,
   },
