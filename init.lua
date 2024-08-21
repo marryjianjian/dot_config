@@ -51,6 +51,11 @@ require("lazy").setup({
     ft = {'c', 'cpp', 'objc'},
   },
   {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  },
+  {
     'nvim-pack/nvim-spectre',
     dependencies = {
       'nvim-lua/plenary.nvim',
