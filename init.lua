@@ -264,13 +264,65 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
 end
 
-local nvim_lsp = require'lspconfig'
 local util = require "lspconfig/util"
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
+-- since neovim 0.11.0 The `require('lspconfig')` "framework" is deprecated
+-- use vim.lsp.config (see :help lspconfig-nvim-0.11) instead.
+if vim.version().minor >= 11 then
+  -- rust
+  vim.lsp.config('rust_analyzer', {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    -- Server-specific settings...
+    settings = {
+      ["rust-analyzer"] = {}
+    }
+  })
 
+  -- go
+  vim.lsp.config('gopls', {
+    on_attach = on_attach,
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+  })
+
+  -- C/C++
+  vim.lsp.config('ccls', {
+    on_attach = on_attach,
+    init_options = {
+      cache = {
+        directory = vim.fn.expand("~/.cache/ccls");
+      };
+    }
+  })
+
+  vim.lsp.enable("rust_analyzer")
+  vim.lsp.enable("gopls")
+  vim.lsp.enable("ccls")
+
+  if vim.fn.executable("lua-language-server") == 1 then
+    vim.lsp.config("luals", {
+      on_attach = on_attach,
+      cmd = { 'lua-language-server' },
+      filetypes = { 'lua' }
+    })
+    vim.lsp.enable("luals")
+  end
+
+else
+local nvim_lsp = require'lspconfig'
 -- rust
 nvim_lsp['rust_analyzer'].setup{
   on_attach = on_attach,
@@ -306,4 +358,4 @@ nvim_lsp['ccls'].setup {
     };
   }
 }
-
+end
